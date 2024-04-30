@@ -1,0 +1,12 @@
+{
+    "iou": {
+        "k_neighbors": 30,
+        "thresh_cluster": 2.6,
+        "overlap_thresh": 0.1,
+        "thresh_line": 1000,
+        "p_cut": 0.4,
+        "available_lines_clustering_methods": ["bottom-up", "top-down"],
+        "lines_clustering_method": "top-down"
+    },
+    "resize_to": 1250
+}

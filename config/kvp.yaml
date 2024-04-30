@@ -1,0 +1,12 @@
+trainer:
+  max_epochs: 8
+  accumulate_grad_batches: 4
+
+datasets:
+  tess_common_gt:
+  use: True
+
+train:
+  batch_size: 1
+  max_length: 8192
+  padding: True

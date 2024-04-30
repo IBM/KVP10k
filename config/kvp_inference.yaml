@@ -1,0 +1,7 @@
+inference:
+  text_prompt: "tess_common_gt"
+  max_new_tokens: 2000
+
+
+
+

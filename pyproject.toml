@@ -1,0 +1,37 @@
+[project]
+name = "KVP10k"
+version = "0.1"
+description = "KVP10k dataset with training and benchmarking"
+license = { text = "" }
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pdf2image~=1.17.0",
+    "requests~=2.31.0",
+    "tesserocr",
+    "datasets==2.18.0",
+    "numpy~=1.26.4",
+    "Pillow~=10.2.0",
+    "pandas~=2.2.1",
+    "matplotlib==3.8.3",
+    "torch==2.0.1",
+    "torchvision==0.15.2",
+    "torchaudio==2.0.2",
+    "transformers==4.36.2",
+    "tokenizers==0.15.0",
+    "lightning==2.0.6",
+    "pytorch-lightning==2.0.6",
+    "bitsandbytes==0.41.0",
+    "flash-attn==2.4.2",
+    "peft==0.5.0",
+    "textdistance==4.6.1",
+    "opencv-python==4.8.0.74",
+    "scikit-learn==1.3.0",
+]
+
+[build-system]
+requires = ["setuptools>=68.2.2"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["utils*"]

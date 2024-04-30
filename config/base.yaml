@@ -1,0 +1,55 @@
+# global
+name: 'baseline'
+seed: 0
+
+# trainer
+trainer:
+  sync_batchnorm: True
+  precision: 'bf16-mixed'
+  accumulate_grad_batches: 4
+
+config:
+  max_seq_len: 8192
+
+llm:
+  pretrained_model_name_or_path: 'mistralai/Mistral-7B-Instruct-v0.2'
+  trust_remote_code: True
+  attn_implementation: 'flash_attention_2'
+  cache_dir: '/tmp'
+
+tokenizer:
+  pretrained_model_name_or_path: 'mistralai/Mistral-7B-Instruct-v0.2'
+  padding_side: 'left'
+  cache_dir: '/tmp'
+
+model:
+  use_image_embeds: False
+  use_word_embeds: False
+  mask_ocr_prob: 0.0
+  use_ocr: True
+  output_format: json
+
+# optimizer
+optimizer:
+  lr: 5.0e-4
+  8bit: False
+
+# parameter-efficient fine-tuning
+peft:
+  r: 4
+  lora_alpha: 4
+  lora_dropout: 0.05
+  bias: "none"
+  target_modules:
+    - "out_proj"
+    - "up_proj"
+    - "down_proj"
+    - "Wqkv"
+
+# dataset
+num_workers: 8
+
+vision: null
+
+misc:
+    use_bfloat16: True
