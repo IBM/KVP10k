@@ -62,7 +62,8 @@ def load_dataset(path, split, cache_dir, tessdata_path):
                                                  cache_dir,
                                                  tessdata_path]
                                                  for item in item_list]):
-        result = _result[0]
+        if _result != None:
+            result = _result[0]
         count+=1
         if result is not None:
             if result not in error_counter:
