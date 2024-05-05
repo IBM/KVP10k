@@ -1,5 +1,3 @@
-git p# KVP10k
-
 ## 1. Introduction:
 
 **KVP10k** is a dataset of 10,000 pages annotated for Key-Value Pair (KVP) extraction from business documents, featuring linked rectangles, from value to its matching key, and text labels.<br>
