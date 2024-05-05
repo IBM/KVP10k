@@ -196,7 +196,7 @@ dataset
 ### 3.1. Setting up the environment:
 
 ```bash
-git clone https://github.ibm.com/Video-AI/KVP10k.git
+git clone git@github.com:IBM/KVP10k.git
 cd KVP10k/
 
 #for conda env                         | #for virtual env
