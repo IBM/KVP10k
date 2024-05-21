@@ -17,17 +17,25 @@ def get_image(image_url, page_number):
     # raise requests.exceptions.SSLError
     # raise requests.exceptions.RequestException
     # raise pdf2image.exceptions.PDFPageCountError
+    if page_number==0:
+        # raise IndexError if the page_number does not exists
+        raise pdf2image.exceptions.PDFPageCountError(f"{image_url} - page_number 0")
     try:
         response = requests.get(image_url)
 
-        if response.status_code == 200:
-            images = convert_from_bytes(response.content, dpi=300, use_cropbox=True)
-            # raise IndexError if the page_number does not exists
-            if page_number==0:
-                raise pdf2image.exceptions.PDFPageCountError(f"{image_url} - page_number 0")
-            return images[page_number-1]
-        else:
+        if response.status_code != 200:
             response.raise_for_status()
+
+        # Memory will quickly fill if all the pages are converted
+        images = convert_from_bytes(response.content, dpi=300, use_cropbox=True, first_page=page_number, last_page=page_number)
+        
+        if len(images) == 0:
+            # raise IndexError if the page_number does not exists
+            raise pdf2image.exceptions.PDFPageCountError(f"{image_url} - page_number 0")
+
+        return images[0]
+
+            
     except Exception as e:
         info = f"{image_url} - page_number {page_number}"
         raise type(e)(info)
