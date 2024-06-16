@@ -77,13 +77,16 @@ wget --quiet https://github.com/tesseract-ocr/tessdata/raw/4.0.0/eng.traineddata
 
 ### 2.2.2. Setting up environment for only preparing the dataset :
 
+We used conda version 24.5.0    
 
 ```bash
 git clone git@github.com:IBM/KVP10k.git
 cd KVP10k/
                     
 conda create -y -n KVP10k python=3.11  
-conda activate KVP10k                  
+conda activate KVP10k   
+
+sudo apt-get install poppler-utils               
 
 pip3 install --only-binary "matplotlib" --only-binary "tesserocr"  -e '.'
 ```
@@ -99,7 +102,7 @@ We provide in this repository a `download_dataset.py` script that for each annot
 - Save all the data in the following structure of dataset
 
 ```bash
-python download_dataset.py --dataset_root_folder <path to dataset root folder> --tessdata_path <path to tessdata folder>
+python download_dataset.py --dataset_root_folder <output path to the dataset root folder> --tessdata_path <path to tessdata folder>
 ```
 
 This repository assumes the following structure of dataset:
