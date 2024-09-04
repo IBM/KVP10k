@@ -3,7 +3,7 @@
 **KVP10k** is a dataset of 10,000 pages annotated for Key-Value Pair (KVP) extraction from business documents, featuring linked rectangles, from value to its matching key, and text labels.<br>
 We also provide code for downloading and preparing the dataset, model training, and benchmarking, serving as a foundation for model comparison and evaluation, as detailed in our paper.
 
-The related paper can be found here: [here](https:/localhost)
+The related paper can be found here: [here](https://arxiv.org/abs/2405.00505)
 
 ### 1.1. Data Source
 
